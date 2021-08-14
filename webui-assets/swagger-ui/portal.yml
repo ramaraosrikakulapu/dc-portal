@@ -1,0 +1,337 @@
+swagger: '2.0'
+info:
+  title: Universal WebApp API
+  description: |
+    The Unified Portal API that is supporting functional UI applications, and embedded DB deployed with the portal backend.
+  version: "1.2.0-b"
+#host: ec-portal.run.aws-usw02-dev.ice.predix.io
+schemes:
+  - https
+basePath: /
+produces:
+  - application/json
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    flow: application
+    authorizationUrl: https://ec-oauth-sso.run.aws-usw02-dev.ice.predix.io/oauth/authorize
+    tokenUrl: https://ec-oauth-sso.run.aws-usw02-dev.ice.predix.io/oauth/token
+    description: OAuth 2.0 with Client Credentias Grant type
+    scopes: []
+    #  read: Grants read access
+    #  write: Grants write access
+    #  admin: Grants read and write access to administrative information
+paths:
+  /{rev}/{app-path}/api/snapshot:
+    get:
+      summary: Get key-value pair
+      description: |
+        Get key-value pair in the dataset
+      tags:
+        - Dataset
+      #security:
+        #- SDCAuth: []
+      responses:
+        200:
+          description: Return dataset value
+          schema:
+            type: "object"
+        501: 
+          description: Internal error during dataset operations
+          schema:
+            type: "object"
+      parameters: 
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+  /{rev}/{app-path}/api/{key}:
+    delete:
+      summary: Delete key-value dataset
+      description: |
+        Delete key-value pair in the embedded DB.
+      tags:
+        - Dataset
+      parameters: 
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+        - in: path
+          name: key
+          description: |
+            The key for the key-value pair dataset.
+          required: true
+          type: string
+      responses:
+        202:
+          description: Deletion accepted
+          schema:
+            type: "object"          
+        501: 
+          description: Internal error during dataset operations
+          schema:
+            type: "object"          
+    post:
+      summary: Create new key-value dataset
+      description: |
+        Create bew key-value pair dataset in the embedded DB.
+      tags:
+        - Dataset
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true        
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+        - in: path
+          name: key
+          description: |
+            The key for the key-value pair dataset.
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: |
+            The value for the key-value pair dataset.
+          required: true
+          type: object
+      responses:
+        200:
+          description: Return dataset value
+          schema:
+            type: "object"
+        501: 
+          description: Internal error during dataset operations
+          schema:
+            type: "object"
+    put:
+      summary: Update key-value pair
+      description: |
+        Update key-value pair in dataset with the specified key.
+      tags:
+        - Dataset
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true        
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: key
+          description: |
+            The key for the key-value pair dataset.
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: |
+            The value for the key-value pair dataset.
+          required: true
+          type: object
+      responses:
+        200:
+          description: updated key-value pair successful. 
+          schema:
+            type: "object"
+        501:
+          description: Internal error during dataset operations
+          schema:
+            type: "object"
+    get:
+      summary: Get key-value pair
+      description: |
+        Get key-value pair in the dataset
+      tags:
+        - Dataset
+      responses:
+        200:
+          description: Return dataset value
+          schema:
+            type: "object"
+        501: 
+          description: Internal error during dataset operations
+          schema:
+            type: "object"
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true        
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+        - in: path
+          name: key
+          description: |
+            The key for the key-value pair dataset.
+          required: true
+          type: string        
+  /{rev}/{app-path}/reboot:
+    post:
+      summary: Restart the SDC instance
+      description: |
+        Restart the SDC instance immediately.
+      tags:
+        - System
+      responses:
+        200:
+          description: return the instance in three seconds.
+          schema:
+            type: "object"
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true        
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+  /{rev}/{app-path}/api/seed:
+    get:
+      summary: Get the list of seeders
+      description: |
+        Get the list of seeders in the cluster
+      tags:
+        - System
+      responses:
+        200:
+          description: return the list of seeder
+          schema:
+            type: "object"
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+          default: Bearer <SDC-Token>          
+          required: true        
+        - in: path
+          name: rev
+          default: v1.2beta
+          description: |
+            The revision for this SDC instance.
+          required: true
+          type: string
+        - in: path
+          name: app-path
+          description: |
+            The pre-configured path for this web app 
+          required: true
+          type: string
+definitions:
+  Token:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: The access token value
+      token_type:
+        type: string
+        enum: 
+          - Bearer
+        description: Type of the token is set to "Bearer"
+      expires_in:
+        type: integer
+        format: int32
+        description: The lifetime in seconds of the access token
+  Error:
+    type: object
+    properties:
+      error:
+        type: string
+        enum:
+          - invalid_request
+          - invalid_client
+          - invalid_grant
+          - unauthorized_client
+          - unsupported_grant_type
+      error_description:
+        type: string
+        description: Human-readable text providing additional information
+      error_uri:
+        type: string
+        description: A URI identifying a human-readable web page with
+         information about the error
