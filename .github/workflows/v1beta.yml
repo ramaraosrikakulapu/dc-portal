@@ -4,6 +4,8 @@
 name: v1beta-ci
 
 on:
+  push:
+    branches: [ v1beta ]
   pull_request:
     branches: [ v1beta ]
     types: [opened, synchronize]
@@ -20,17 +22,19 @@ jobs:
     - name: uitest
       id: uitest
       run: npm install && npm test && npm run build && tree webui-assets
-
     - name: Push Build Artifacts
       if: github.event_name == 'push'
-      run: |
-          git config user.name "Shubham Paskanti"
-          git config user.email "<spaskanti1@gmail.com>"
-          git add webui-assets
-          git commit -m "Build Commit"
-          git push origin v1beta
+      uses: ec-release/github-action-copy-files-folders-to-another-repos@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.DC_GITHUB_TKN }}
+        GIT_USEREMAIL: ${{ secrets.DC_GITHUB_EMAIL }}
+        GIT_USERNAME: ${{ secrets.DC_GITHUB_USER }}
+      with:
+        SOURCE_DIR: 'webui-assets'
+        DESTINATION_REPOS_BRANCHES: 'github.com/dc-release/dc-portal.git:disty'
+        COMMIT_MESSAGE: 'DC Bot Deployment'
     - name: prmerged
       if: github.event_name == 'push'
       id: prmerged
       run: |
-          echo pr has been merged and closed
+        echo pr has been merged and closed
