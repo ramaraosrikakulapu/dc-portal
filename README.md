@@ -1,7 +1,27 @@
 # dc-portal
 The repo hosts the development of the Digital Connect Self-Service Portal. The portal is to provide GE internal users the subscription access to the rest of DC Services/Products.
 
-## How to launch
+## Getting Started
+
+### Development
+
+This repository hosts all the content for DC Service Cloud Portal. Frontend code uses React JS, Bootstrap and JQuery as primary libraries used. Actual code is in the `src/` directory.
+
+We use Node JS and npm for Testing, Development and Linting.
+
+To start a local Web Development Server, run the following commands:
+
+```shell
+$ git clone git@github.build.ge.com:DC-Admin-Portal/dc-portal-mirror.git
+$ cd dc-portal-mirror
+$ npm install
+$ npm start
+```
+Afer successful run of above commands, a new tab will open in your **default** browser pointing to `http://localhost:3011`.
+
+This is a live server to assist your development, by hot reloading the UI everytime you make a change to the concerned files.
+
+### Deploy
 It is recommended to launch the app via OCI container spec. For quickest adoption, following below the docker command-
 
 ```shell
