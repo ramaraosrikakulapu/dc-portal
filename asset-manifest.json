@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b9893c2e.chunk.css",
+    "main.js": "/static/js/main.aa7f9928.chunk.js",
+    "main.js.map": "/static/js/main.aa7f9928.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4446cfe7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4446cfe7.js.map",
+    "static/js/2.e2c579af.chunk.js": "/static/js/2.e2c579af.chunk.js",
+    "static/js/2.e2c579af.chunk.js.map": "/static/js/2.e2c579af.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b9893c2e.chunk.css.map": "/static/css/main.b9893c2e.chunk.css.map",
+    "static/js/2.e2c579af.chunk.js.LICENSE.txt": "/static/js/2.e2c579af.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/static/media/Logo-Search.a17727d0.svg",
+    "static/media/Icon-Administration.46c69c4a.svg": "/static/media/Icon-Administration.46c69c4a.svg",
+    "static/media/Icon-Announcements-Events.c9b8854c.svg": "/static/media/Icon-Announcements-Events.c9b8854c.svg",
+    "static/media/Icon-Confluence.0c79a43a.svg": "/static/media/Icon-Confluence.0c79a43a.svg",
+    "static/media/Icon-Dashboard.9951b51a.svg": "/static/media/Icon-Dashboard.9951b51a.svg",
+    "static/media/Icon-Dive.0417be54.svg": "/static/media/Icon-Dive.0417be54.svg",
+    "static/media/Icon-Dive.4f908833.png": "/static/media/Icon-Dive.4f908833.png",
+    "static/media/Icon-EC.efe0a170.svg": "/static/media/Icon-EC.efe0a170.svg",
+    "static/media/Icon-Engagement-Requests.9f819324.svg": "/static/media/Icon-Engagement-Requests.9f819324.svg",
+    "static/media/Icon-Github.e9c4a980.svg": "/static/media/Icon-Github.e9c4a980.svg",
+    "static/media/Icon-Globalscape.716cfdb0.svg": "/static/media/Icon-Globalscape.716cfdb0.svg",
+    "static/media/Icon-Open.4dcb1062.svg": "/static/media/Icon-Open.4dcb1062.svg",
+    "static/media/Icon-Products.ca55ae6e.svg": "/static/media/Icon-Products.ca55ae6e.svg",
+    "static/media/Icon-Settings.b49bb0aa.svg": "/static/media/Icon-Settings.b49bb0aa.svg",
+    "static/media/Icon-Snow.246ea94d.png": "/static/media/Icon-Snow.246ea94d.png",
+    "static/media/Icon-Subscriptions.13e84b8e.svg": "/static/media/Icon-Subscriptions.13e84b8e.svg",
+    "static/media/Icon-Support.7e9a3ed5.svg": "/static/media/Icon-Support.7e9a3ed5.svg",
+    "static/media/Icon-TC.dc37e20a.png": "/static/media/Icon-TC.dc37e20a.png",
+    "static/media/Icon-Yammer.a365158f.svg": "/static/media/Icon-Yammer.a365158f.svg",
+    "static/media/Logo-GE1.3a4d0e46.svg": "/static/media/Logo-GE1.3a4d0e46.svg",
+    "static/media/Logo-UserProfile.9bfd9617.jpg": "/static/media/Logo-UserProfile.9bfd9617.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4446cfe7.js",
+    "static/js/2.e2c579af.chunk.js",
+    "static/css/main.b9893c2e.chunk.css",
+    "static/js/main.aa7f9928.chunk.js"
+  ]
+}
