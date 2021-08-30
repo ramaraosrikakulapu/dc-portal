@@ -5,8 +5,9 @@
   "private": true,
   "homepage": "v1.2beta/assets",
   "scripts": {
-    "start": "set PORT=3011 && react-scripts start",
-    "build": "set PUBLIC_URL=v1.2beta/assets&& react-scripts build",
+    "start": "cross-env PORT=3011 REACT_APP_BASEURL=/ PUBLIC_URL=/ react-scripts start",
+    "build": "cross-env REACT_APP_BASEURL=/v1.2beta/dcsc react-scripts build",
+    "preinstall": "npx npm-force-resolutions",
     "test": "nyc cross-env NODE_ENV=test jasmine",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "jshint": "jshint src/",
